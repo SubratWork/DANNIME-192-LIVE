@@ -1,0 +1,9 @@
+<map name="MICAL.active_schemes" value="ae_carzone_usedmbi,ae_carzone_topupmbi,ae_alfuttaim_ProtectPlus,ae_gargash_gap,ae_alhabtoor_gap,ae_carzone_gap,ae_gargash_smart,ae_shalmanaqatar_newmbi,qbeae_arabian_gapfs,qbeae_arabian_gapvri,qbeae_gargash_commsmart,ae_shalmanaqatar_usedmbi,ae_shalmanaqatar_usedmbicomm,ae_suhailbahwan_newmbi,qbeae_bmwdubai_sma,qbeae_bmwbahrain_ewu,qbeae_bmwegypt_ewu,qbeae_bmwkuwait_ewu,qbeae_bmwlebanon_ewu,qbeae_bmwqatar_ewu,qbeae_bmwsaudarabia_ewu,qbeae_bmwuae_ewu,qbeae_bmwjordan_ewu,qbeae_egyptgeneric_gap,qbeae_qatargeneric_gap,qbeae_qatargeneric_usedmbi,qbeae_orientbahrain_ewn,qbeae_uaegeneric_gap,qbeae_uaegeneric_smart"/>
+<map name="products" value="BMW UAE Used MBI|||BMW Kuwait Used MBI|||Orient Bahrain New MBI|||Protect Plus|||QATAR MBI|||QATAR USED MBI|||QATAR USEDCOMM MBI|||BMW SMART|||Al Habtoor GAP|||Suhail Bahwan MBI|||GARGASH GAP|||GARGASH SMART|||Commercial SMART|||Egypt Generic GAP|||QATAR GENERIC GAP|||QATAR GENERIC USED MBI|||BMW Lebanon Used MBI|||BMW Qatar Used MBI|||VRI GAP|||SHORTFALL GAP|||BMW Bahrain Used MBI|||BMW Jordan Used MBI|||BMW SaudiArabia Used MBI|||BMW Egypt Used MBI|||Used MBI|||TOPUP MBI|||Carzone GAP|||UAE Generic GAP|||UAE Generic SMART"/>
+
+
+<map name="assessments_to_mail" value="madhavip@ibaseit.com,himabinduk@ibaseit.com,durgaprasadv@ibaseit.com,mukeshk@ibaseit.com,akhilbabuv@ibaseit.com"/>
+<map name="assessments_from_mail" value="Danni@ibaseit.com"/>
+<map name="claimuploads_api_end_action" value="new"/>
+<map name="surchargeManagerenable" value="true"/>
+<map name="offline_claimuploads_committolive" value="false"/>

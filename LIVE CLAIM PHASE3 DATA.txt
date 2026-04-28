@@ -1,0 +1,13 @@
+
+select top 1* from  FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_TBL;
+select top 1* from  FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_TBL_HIST;
+ 
+begin tran
+ 
+alter table FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_TBL add InvoicePriceCheck bit;
+ 
+alter table FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_TBL_HIST add InvoicePriceCheck bit;
+ 
+rollback
+
+

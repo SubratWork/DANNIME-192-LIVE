@@ -1,0 +1,304 @@
+GO
+/****** Object:  StoredProcedure [dbo].[FB__HISTINNER_CLAIM_INSTANCE_REPAIR_ITEM_LOAD]    Script Date: 03-01-2026 13:38:07 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[FB__HISTINNER_CLAIM_INSTANCE_REPAIR_ITEM_LOAD]
+  @PKey_pkey uniqueidentifier,
+  @PKey_version smallint
+
+ 
+
+AS
+BEGIN
+Select  PKey_pkey,
+  PKey_version,  ParentKey_pkey,
+  ParentKey_version,
+  RepairID,
+  PartItem_pkey,
+  PartItem_version,
+  LabourItem_pkey,
+  LabourItem_version,
+  TotalAmt_currency,
+  TotalAmt_amount,
+  IndexNumber,
+  InvoicePriceCheck
+   from FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_TBL_HIST
+   where PKey_pkey = @PKey_pkey
+  and PKey_version = @PKey_version
+END
+
+ 
+
+ 
+
+GO
+/****** Object:  StoredProcedure [dbo].[FB__HISTINNER_CLAIM_INSTANCE_REPAIR_ITEM_SAVE]    Script Date: 03-01-2026 13:38:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[FB__HISTINNER_CLAIM_INSTANCE_REPAIR_ITEM_SAVE]
+  @PKey_pkey uniqueidentifier,
+  @PKey_version smallint
+
+ 
+
+AS
+BEGIN
+INSERT INTO FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_TBL_HIST
+  SELECT * FROM FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_TBL 
+   where PKey_pkey = @PKey_pkey
+  and PKey_version = @PKey_version
+END
+
+ 
+
+GO
+/****** Object:  StoredProcedure [dbo].[FB_HIST_inner_claim_instance_repair_ledger_ARRAY_inner_claim_instance_repair_item_RepairItemList_ParentKey]    Script Date: 03-01-2026 13:42:43 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[FB_HIST_inner_claim_instance_repair_ledger_ARRAY_inner_claim_instance_repair_item_RepairItemList_ParentKey]
+  @PKey_pkey uniqueidentifier,
+  @PKey_version smallint
+
+ 
+
+AS
+BEGIN
+Select  PKey_pkey,
+  PKey_version,  ParentKey_pkey,
+  ParentKey_version,
+  RepairID,
+  PartItem_pkey,
+  PartItem_version,
+  LabourItem_pkey,
+  LabourItem_version,
+  TotalAmt_currency,
+  TotalAmt_amount,
+  IndexNumber,
+  InvoicePriceCheck
+   from FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_TBL_HIST
+   where ParentKey_pkey = @PKey_pkey and ParentKey_version = @PKey_version
+END
+
+ 
+
+ 
+
+GO
+/****** Object:  StoredProcedure [dbo].[FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_DELETE]    Script Date: 03-01-2026 13:39:45 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_DELETE]
+  @PKey_pkey uniqueidentifier,
+  @PKey_version smallint
+
+ 
+
+AS
+BEGIN
+Delete from FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_TBL
+   where PKey_pkey = @PKey_pkey
+  and PKey_version = @PKey_version
+END
+
+ 
+
+ 
+
+GO
+/****** Object:  StoredProcedure [dbo].[FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_LOAD]    Script Date: 03-01-2026 13:40:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_LOAD]
+  @PKey_pkey uniqueidentifier,
+  @PKey_version smallint
+
+ 
+
+AS
+BEGIN
+Select  PKey_pkey,
+  PKey_version,  ParentKey_pkey,
+  ParentKey_version,
+  RepairID,
+  PartItem_pkey,
+  PartItem_version,
+  LabourItem_pkey,
+  LabourItem_version,
+  TotalAmt_currency,
+  TotalAmt_amount,
+  IndexNumber,
+  InvoicePriceCheck
+   from FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_TBL
+   where PKey_pkey = @PKey_pkey
+END
+
+ 
+
+ 
+
+GO
+/****** Object:  StoredProcedure [dbo].[FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_SAVE]    Script Date: 03-01-2026 13:40:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_SAVE]
+  @PKey_pkey uniqueidentifier output,
+  @PKey_version smallint output,
+  @ParentKey_pkey uniqueidentifier output,
+  @ParentKey_version smallint output,
+  @RepairID int,
+  @PartItem_pkey uniqueidentifier,
+  @PartItem_version smallint,
+  @LabourItem_pkey uniqueidentifier,
+  @LabourItem_version smallint,
+  @TotalAmt_currency int,
+  @TotalAmt_amount decimal(18,2),
+  @IndexNumber int,
+  @InvoicePriceCheck bit
+AS
+BEGIN
+
+ 
+
+Set @PKey_pkey = NEWID()
+Insert into FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_TBL
+  (
+  PKey_pkey,
+  PKey_version,
+  ParentKey_pkey,
+  ParentKey_version,
+  RepairID,
+  PartItem_pkey,
+  PartItem_version,
+  LabourItem_pkey,
+  LabourItem_version,
+  TotalAmt_currency,
+  TotalAmt_amount,
+  IndexNumber,
+  InvoicePriceCheck
+  )
+values
+  (
+  @PKey_pkey,
+  @PKey_version,
+  @ParentKey_pkey,
+  @ParentKey_version,
+  @RepairID,
+  @PartItem_pkey,
+  @PartItem_version,
+  @LabourItem_pkey,
+  @LabourItem_version,
+  @TotalAmt_currency,
+  @TotalAmt_amount,
+  @IndexNumber,
+  @InvoicePriceCheck 
+  )
+
+ 
+
+ 
+
+END
+
+ 
+
+ 
+
+GO
+/****** Object:  StoredProcedure [dbo].[FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_UPDATE]    Script Date: 03-01-2026 13:40:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_UPDATE]
+  @PKey_pkey uniqueidentifier,
+  @PKey_version smallint,
+  @PKey_newversion smallint,
+  @ParentKey_pkey uniqueidentifier output,
+  @ParentKey_version smallint output,
+  @RepairID int,
+  @PartItem_pkey uniqueidentifier,
+  @PartItem_version smallint,
+  @LabourItem_pkey uniqueidentifier,
+  @LabourItem_version smallint,
+  @TotalAmt_currency int,
+  @TotalAmt_amount decimal(18,2),
+    @IndexNumber int,
+  @InvoicePriceCheck bit
+AS
+BEGIN
+
+ 
+
+Update FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_TBL
+
+SET
+  PKey_version = @PKey_newversion,
+  ParentKey_pkey = @ParentKey_pkey,
+  ParentKey_version = @ParentKey_version,
+  RepairID = @RepairID,
+  PartItem_pkey = @PartItem_pkey,
+  PartItem_version = @PartItem_version,
+  LabourItem_pkey = @LabourItem_pkey,
+  LabourItem_version = @LabourItem_version,
+  TotalAmt_currency = @TotalAmt_currency,
+  TotalAmt_amount = @TotalAmt_amount,
+  IndexNumber = @IndexNumber,
+  InvoicePriceCheck = @InvoicePriceCheck
+   where PKey_pkey = @PKey_pkey
+  and PKey_version = @PKey_version
+
+ 
+
+END
+
+ 
+
+ 
+
+GO
+/****** Object:  StoredProcedure [dbo].[FB_inner_claim_instance_repair_ledger_ARRAY_inner_claim_instance_repair_item_RepairItemList_ParentKey]    Script Date: 03-01-2026 13:40:57 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[FB_inner_claim_instance_repair_ledger_ARRAY_inner_claim_instance_repair_item_RepairItemList_ParentKey]
+  @PKey_pkey uniqueidentifier,
+  @PKey_version smallint
+
+ 
+
+AS
+BEGIN
+Select  PKey_pkey,
+  PKey_version,  ParentKey_pkey,
+  ParentKey_version,
+  RepairID,
+  PartItem_pkey,
+  PartItem_version,
+  LabourItem_pkey,
+  LabourItem_version,
+  TotalAmt_currency,
+  TotalAmt_amount,
+  IndexNumber,
+  InvoicePriceCheck
+   from FB_INNER_CLAIM_INSTANCE_REPAIR_ITEM_TBL
+   where ParentKey_pkey = @PKey_pkey and ParentKey_version = @PKey_version
+END
+
+ 
+
+ 
+
+GO
